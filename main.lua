@@ -9,15 +9,15 @@ end
 function _update()
 
 if btn(0) then
-	if(solid_tile(player.x-1, player.y) == false) then
-   	 player.x -= player.speed
-   	 move()
+if(solid_tile(player.x-1, player.y) == false) then
+    player.x -= player.speed
+    move()
   end
 
-if btn(1) then
+  if btn(1) then
 	if(solid_tile(player.x+8, player.y) == false) then
-   	player.x += player.speed
-   	move()
+    player.x += player.speed
+    move()
 end
   end
 
@@ -64,13 +64,6 @@ spr(21,64,112)
 
 end
 
-function move()
-  player.moving = true
-  player.sprite += 1
-  if player.sprite > 3 then
-   player.sprite = 1
-  end
-end
 
 function solid_tile(x, y)
 	local tilex = ((x - (x % 8)) / 8)
