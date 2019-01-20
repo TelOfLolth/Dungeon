@@ -11,46 +11,42 @@ function _update()
 if btn(0) then
 if(solid_tile(player.x-1, player.y) == false) then
     player.x -= player.speed
-    move()
   end
-
-  if btn(1) then
-	if(solid_tile(player.x+8, player.y) == false) then
-    player.x += player.speed
-    move()
 end
-  end
 
-  if btn(2) then
-	if(solid_tile(player.x, player.y-1) == false) then
-    player.y -= player.speed
-    move()
-	end
+if btn(1) then
+if(solid_tile(player.x+8, player.y) == false) then
+    player.x -= player.speed
+  end
 end
-  end
 
-  if btn(3) then
+if btn(2) then
+if(solid_tile(player.x, player.y-1) == false) then
+    player.x -= player.speed
+  end
+end
+	
+if btn(3) then
 if(solid_tile(player.x, player.y+8) == false) then
-    player.y += player.speed
-    move()
-end
+    player.x -= player.speed
   end
-  
-  if btn(0) then
+end
+	
+if btn(0) then
   player.sprite = 1 
   sfx(0)
   end
-  if btn(1) then
+if btn(1) then
   player.sprite = 2
    sfx(0)
   end
-  if btn(2) then
+if btn(2) then
    sfx(0)
   end
 if btn(3) then
     sfx(0)
-  
-end
+  end
+	
 end
 			
 
