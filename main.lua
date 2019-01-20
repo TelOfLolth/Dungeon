@@ -16,19 +16,19 @@ end
 
 if btn(1) then
 if(solid_tile(player.x+8, player.y) == false) then
-    player.x -= player.speed
+    player.x += player.speed
   end
 end
 
 if btn(2) then
 if(solid_tile(player.x, player.y-1) == false) then
-    player.x -= player.speed
+    player.y -= player.speed
   end
 end
 	
 if btn(3) then
 if(solid_tile(player.x, player.y+8) == false) then
-    player.x -= player.speed
+    player.y += player.speed
   end
 end
 	
