@@ -19,19 +19,30 @@ function _draw()
 	spr(20,56,112)
 	spr(21,64,112)
 	spr(19, e.x, e.y)	
+	print(p.x, 120, 120)
+	print(p.y, 100, 120)
 end
 --------------------------------------------------------
 function _update()
-	if e.x > 120 or e.x < 8 then
-		e.xd -= e.xd
-	else
+	if (e.x > 112) or solid_tile(e.x, e.y) == true then
+		e.xd = -1
 		e.x += e.xd
+	else if (e.x < 8) then
+			e.xd = 1
+			e.x += e.xd
+		else
+			e.x += e.xd
+		end
 	end
 	
-	if e.y > 128 or e.y <0 then
-		e.yd -= e.yd
-	else
+	if (e.y > 100) or solid_tile(e.x, e.y) == true then
+		e.yd = -1
 		e.y += e.yd
+	else if (e.y) < 8 then
+			e.yd = 1
+			e.y += e.yd
+		else
+			e.y += e.yd
 	end
 	
 -- Code for movement and collision checks
@@ -77,6 +88,8 @@ function _update()
 	if btn(3) then
 		sfx(0)
 	end
+	
+end
 	
 end
 --------------------------------------------------------
