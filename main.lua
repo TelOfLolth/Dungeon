@@ -72,12 +72,12 @@ function _update()
 
 -- Movement audio and misc. actions related to movement
 	if btn(0) then
-		move_a()
+		p.sprite = 1
 		sfx(0)
 	end
 	
 	if btn(1) then
-		move_b()
+		p.sprite = 2
 		sfx(0)
 	end
 
@@ -105,16 +105,4 @@ function solid_tile(x, y)
 	
 end
 --------------------------------------------------------
-function move_a()
-  p.sprite += 1
-  if p.sprite > 33 then
-   p.sprite = 32
-  end
-end
 
-function move_b()
-  p.sprite += 1
-  if p.sprite > 34 then
-   p.sprite = 35
-  end
-end
