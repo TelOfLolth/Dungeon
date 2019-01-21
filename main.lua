@@ -102,7 +102,6 @@ function _update()
 	if btn(4) then
 		sfx(1)
 		p.gun = true
-		p.sprite = 1
 		if btn(5) then
 			sfx(3)
 	
