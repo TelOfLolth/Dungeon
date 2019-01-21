@@ -4,60 +4,64 @@ function _init()
 	player.y = 100
 	player.sprite = 1
 	player.speed = 1
+	
+	enemy = {}
 end
 
 function _update()
+-- Code for movement and collision checks
+	if btn(0) then
+		if(solid_tile(player.x-1, player.y) == false) then
+			player.x -= player.speed
+		end
+	end
 
-if btn(0) then
-if(solid_tile(player.x-1, player.y) == false) then
-    player.x -= player.speed
-  end
-end
+	if btn(1) then
+		if(solid_tile(player.x+8, player.y) == false) then
+			player.x += player.speed
+		end
+	end
 
-if btn(1) then
-if(solid_tile(player.x+8, player.y) == false) then
-    player.x += player.speed
-  end
-end
-
-if btn(2) then
-if(solid_tile(player.x, player.y-1) == false) then
-    player.y -= player.speed
-  end
-end
+	if btn(2) then
+		if(solid_tile(player.x, player.y-1) == false) then
+			player.y -= player.speed
+		end
+	end
 	
-if btn(3) then
-if(solid_tile(player.x, player.y+8) == false) then
-    player.y += player.speed
-  end
-end
+	if btn(3) then
+		if(solid_tile(player.x, player.y+8) == false) then
+			player.y += player.speed
+		end
+	end
+
+-- Movement audio and misc. actions related to movement
+	if btn(0) then
+		player.sprite = 1 
+		sfx(0)
+	end
 	
-if btn(0) then
-  player.sprite = 1 
-  sfx(0)
-  end
-if btn(1) then
-  player.sprite = 2
-   sfx(0)
-  end
-if btn(2) then
-   sfx(0)
-  end
-if btn(3) then
-    sfx(0)
-  end
+	if btn(1) then
+		player.sprite = 2
+		sfx(0)
+	end
+
+	if btn(2) then
+		sfx(0)
+	end
+	
+	if btn(3) then
+		sfx(0)
+	end
 	
 end
 			
 
-function _draw()			
-			 
-cls()
-map(0,0,0,0,16,16)
-spr(player.sprite, player.x, player.y)
-spr(20,56,112)
-spr(21,64,112)
-
+function _draw()					 
+	cls()
+	map(0,0,0,0,16,16)
+	spr(player.sprite, player.x, player.y)
+	spr(20,56,112)
+	spr(21,64,112)
 end
 
 
@@ -66,14 +70,13 @@ function solid_tile(x, y)
 	local tiley = ((y - (y % 8)) / 8)
 
 	if(fget(mget(tilex, tiley), 0)) then
- 	return true
- else
- 	return false
- end	
+ 		return true
+ 	else
+ 		return false
+ 	end	
 	
 end
 
-function enemy(n)
-spr(rnd(3)+17, rnd(112)+8, rnd(48))
-	
+function enemy()
+	spr(rnd(3)+17, rnd(112)+8, rnd(48))	
 end
