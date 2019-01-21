@@ -3,7 +3,7 @@ function _init()
 	p.x = 60
 	p.y = 100
 	p.sprite = 3
-	p.speed = 2
+	p.speed = 1
 	p.gun = false
 	
 	e = {}
@@ -92,25 +92,33 @@ function _update()
 	end
 
 	if btn(2) then
-		sfx(0)
+		if p.gun == true then
+			p.sprite = 18
+		else
+			sprite = 3
+		end
+		sfx(0)		
 	end
 	
 	if btn(3) then
+		if p.gun == true then
+			p.sprite = 17
+		else
+			sprite = 3
+		end
 		sfx(0)
 	end
 	
 	if btn(4) then
 		sfx(1)
 		p.gun = true
-		if btn(5) then
-			sfx(3)
-	
-		end	
-	else
-		p.gun = false
-		p.sprite = 3		
+		p.sprite = 1
 	end
-
+	
+	if btn(5) and p.gun == true then
+		sfx(3)
+	
+	end	
 	
 end
 end
