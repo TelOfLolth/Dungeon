@@ -3,7 +3,7 @@ function _init()
 	p.x = 60
 	p.y = 100
 	p.sprite = 1
-	p.speed = 2
+	p.speed = 1
 	
 	e = {}
 	e.x = rnd(112)+8
