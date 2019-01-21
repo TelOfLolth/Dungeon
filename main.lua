@@ -101,20 +101,18 @@ function _update()
 	
 	if btn(4) then
 		sfx(1)
-		if p.gun == false then
-			p.gun = true
-			p.sprite = 1
-		else
-			p.gun = false
-			p.sprite = 3
-	end	
+		p.gun = true
+		p.sprite = 1
+		if btn(5) then
+			sfx(3)
 	
-end
+		end	
+	else
+		p.gun = false
+		p.sprite = 3		
+	end
 
-	if btn(5) then
-		sfx(3)
 	
-end
 end
 end
 --------------------------------------------------------
