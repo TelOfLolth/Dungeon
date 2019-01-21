@@ -3,7 +3,7 @@ function _init()
 	p.x = 60
 	p.y = 100
 	p.sprite = 1
-	p.speed = 1
+	p.speed = 2
 	
 	e = {}
 	e.x = rnd(112)+8
@@ -105,3 +105,8 @@ function solid_tile(x, y)
 	
 end
 --------------------------------------------------------
+
+function animate_player(sp)
+	p.sprite += sp
+	p.sprite -= sp
+end
