@@ -2,7 +2,7 @@ function _init()
 	p = {}
 	p.x = 60
 	p.y = 100
-	p.sprite = 1
+	p.sprite = 3
 	p.speed = 2
 	
 	e = {}
@@ -72,12 +72,12 @@ function _update()
 
 -- Movement audio and misc. actions related to movement
 	if btn(0) then
-		p.sprite = 1 
+		animate_player_a()
 		sfx(0)
 	end
 	
 	if btn(1) then
-		p.sprite = 2
+		animate_player_b()
 		sfx(0)
 	end
 
@@ -106,7 +106,12 @@ function solid_tile(x, y)
 end
 --------------------------------------------------------
 
-function animate_player(sp)
-	p.sprite += sp
-	p.sprite -= sp
+function animate_player_a()
+	p.sprite = 32
+	p.sprite = 33
+end
+
+function animate_player_b()
+	p.sprite = 34
+	p.sprite = 35
 end
