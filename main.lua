@@ -6,9 +6,34 @@ function _init()
 	p.speed = 1
 	
 	e = {}
+	e.x = rnd(112)+8
+	e.y = rnd(48)
+	e.xd = rnd(2)-1
+	e.yd = rnd(2)-1
 end
-
+--------------------------------------------------------
+function _draw()					 
+	cls()
+	map(0,0,0,0,16,16)
+	spr(p.sprite, p.x, p.y)
+	spr(20,56,112)
+	spr(21,64,112)
+	spr(19, e.x, e.y)	
+end
+--------------------------------------------------------
 function _update()
+	if e.x > 120 or e.x < 8 then
+		e.xd -= e.xd
+	else
+		e.x += e.xd
+	end
+	
+	if e.y > 128 or e.y <0 then
+		e.yd -= e.yd
+	else
+		e.y += e.yd
+	end
+	
 -- Code for movement and collision checks
 	if btn(0) then
 		if(solid_tile(p.x-1, p.y) == false) then
@@ -54,17 +79,7 @@ function _update()
 	end
 	
 end
-			
-
-function _draw()					 
-	cls()
-	map(0,0,0,0,16,16)
-	spr(p.sprite, p.x, p.y)
-	spr(20,56,112)
-	spr(21,64,112)
-end
-
-
+--------------------------------------------------------
 function solid_tile(x, y)
 	local tilex = ((x - (x % 8)) / 8)
 	local tiley = ((y - (y % 8)) / 8)
@@ -76,11 +91,4 @@ function solid_tile(x, y)
  	end	
 	
 end
-
-function enemy()
-	spr(rnd(3)+17, rnd(112)+8, rnd(48))	
-	add(e,{
-			"hello",
-			})
-	print(e, 30, 122, 7)
-end
+--------------------------------------------------------
