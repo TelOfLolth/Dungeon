@@ -47,7 +47,7 @@ function _update()
 			e.y += e.yd
 	end
 	
--- Code for movement and collision checks
+-- code for movement and collision checks
 	if btn(0) then
 		if(solid_tile(p.x-1, p.y) == false) then
 			p.x -= p.speed
@@ -72,9 +72,9 @@ function _update()
 		end
 	end
 
--- Movement audio and misc. actions related to movement
+-- movement audio and misc. actions related to movement
 	if btn(0) then
-		if p.gun = true then
+		if p.gun == true then
 			p.sprite = 1
 		else
 			sprite = 3
@@ -83,7 +83,7 @@ function _update()
 	end
 	
 	if btn(1) then
-		if p.gun = true then
+		if(p.gun == true) then
 			p.sprite = 2
 		else
 			sprite = 3
@@ -99,8 +99,23 @@ function _update()
 		sfx(0)
 	end
 	
-end
+	if btn(4) then
+		sfx(1)
+		if p.gun == false then
+			p.gun = true
+			p.sprite = 1
+		else
+			p.gun = false
+			p.sprite = 3
+	end	
 	
+end
+
+	if btn(5) then
+		sfx(3)
+	
+end
+end
 end
 --------------------------------------------------------
 function solid_tile(x, y)
