@@ -73,3 +73,7 @@ function solid_tile(x, y)
 	
 end
 
+function enemy(n)
+spr(rnd(3)+17, rnd(112)+8, rnd(48))
+	
+end
