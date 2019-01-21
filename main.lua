@@ -4,6 +4,7 @@ function _init()
 	p.y = 100
 	p.sprite = 3
 	p.speed = 2
+	p.gun = false
 	
 	e = {}
 	e.x = rnd(112)+8
@@ -73,12 +74,20 @@ function _update()
 
 -- Movement audio and misc. actions related to movement
 	if btn(0) then
-		p.sprite = 1
+		if p.gun = true then
+			p.sprite = 1
+		else
+			sprite = 3
+		end
 		sfx(0)
 	end
 	
 	if btn(1) then
-		p.sprite = 2
+		if p.gun = true then
+			p.sprite = 2
+		else
+			sprite = 3
+		end
 		sfx(0)
 	end
 
