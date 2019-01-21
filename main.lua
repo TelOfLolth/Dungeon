@@ -24,10 +24,10 @@ function _draw()
 end
 --------------------------------------------------------
 function _update()
-	if (e.x > 112) or solid_tile(e.x - 1, e.y) == true then
+	if (e.x > 112) == true then
 		e.xd = -1
 		e.x += e.xd
-	else if (e.x < 8) or solid_tile(e.x + 6, e.y) == true then
+	else if (e.x < 8) == true then
 			e.xd = 1
 			e.x += e.xd
 		else
@@ -35,10 +35,10 @@ function _update()
 		end
 	end
 	
-	if (e.y > 100) or solid_tile(e.x, e.y + 1) == true then
+	if (e.y > 100) == true then
 		e.yd = -1
 		e.y += e.yd
-	else if (e.y) < 8 or solid_tile(e.x , e.y - 8) == true then
+	else if (e.y) < 8 == true then
 			e.yd = 1
 			e.y += e.yd
 		else
