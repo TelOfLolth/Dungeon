@@ -3,11 +3,11 @@ function _init()
 	p.x = 60
 	p.y = 100
 	p.sprite = 1
-	p.speed = 1
+	p.speed = 2
 	
 	e = {}
 	e.x = rnd(112)+8
-	e.y = rnd(48)
+	e.y = rnd(100)
 	e.xd = rnd(2)-1
 	e.yd = rnd(2)-1
 end
@@ -24,10 +24,10 @@ function _draw()
 end
 --------------------------------------------------------
 function _update()
-	if (e.x > 112) or solid_tile(e.x, e.y) == true then
+	if (e.x > 112) or solid_tile(e.x - 8, e.y) == true then
 		e.xd = -1
 		e.x += e.xd
-	else if (e.x < 8) then
+	else if (e.x < 8) or solid_tile(e.x + 8, e.y) == true then
 			e.xd = 1
 			e.x += e.xd
 		else
@@ -35,10 +35,10 @@ function _update()
 		end
 	end
 	
-	if (e.y > 100) or solid_tile(e.x, e.y) == true then
+	if (e.y > 100) or solid_tile(e.x, e.y + 8) == true then
 		e.yd = -1
 		e.y += e.yd
-	else if (e.y) < 8 then
+	else if (e.y) < 8 or solid_tile(e.x , e.y - 8) == true then
 			e.yd = 1
 			e.y += e.yd
 		else
